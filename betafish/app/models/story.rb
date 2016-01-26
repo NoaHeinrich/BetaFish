@@ -7,5 +7,5 @@ class Story < ActiveRecord::Base
   validates :title, presence: true
   has_attached_file :content
   validates :content, :attachment_presence => true
-  validates_attachment :content, :content_type => { :content_type => %w(application/pdf application/msword) }
+  validates_attachment :content, :content_type => { :content_type => %w(application/pdf) }
 end
