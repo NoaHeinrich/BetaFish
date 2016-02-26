@@ -9,4 +9,9 @@ class User < ActiveRecord::Base
 
   has_secure_password(validations: false)
 
+  def get_avg_rating
+
+
+  end
+
 end
