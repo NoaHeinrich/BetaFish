@@ -2,7 +2,7 @@ class CreateStories < ActiveRecord::Migration
   def change
     create_table :stories do |t|
       t.string :title
-      t.attachment :content
+      t.text :content
       t.references :user
 
       t.timestamps null: false

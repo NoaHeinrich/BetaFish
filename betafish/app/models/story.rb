@@ -5,7 +5,6 @@ class Story < ActiveRecord::Base
   has_many :genres, through: :classifications
 
   validates :title, presence: true
-  has_attached_file :content
-  validates :content, :attachment_presence => true
-  validates_attachment :content, :content_type => { :content_type => %w(application/pdf application/msword) }
+  validates :content, presence: true
+  validates :content, length: { maximum: 3000 }
 end
