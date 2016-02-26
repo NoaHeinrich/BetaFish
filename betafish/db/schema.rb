@@ -47,13 +47,10 @@ ActiveRecord::Schema.define(version: 20160122192147) do
 
   create_table "stories", force: :cascade do |t|
     t.string   "title"
-    t.string   "content_file_name"
-    t.string   "content_content_type"
-    t.integer  "content_file_size"
-    t.datetime "content_updated_at"
+    t.text     "content"
     t.integer  "user_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
