@@ -12,7 +12,7 @@
 
   <body>
     <div>
-      <h1>BetaFish</h1>
+      <h1><%= link_to "BetaFish", stories_path %></h1>
       <% if logged_in? %>
         <p>Welcome back, <%=link_to current_user.username, user_path(current_user) %>
         <%=button_to 'Logout', logout_path, method: :delete %></p>
