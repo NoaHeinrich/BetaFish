@@ -11,7 +11,16 @@
   </head>
 
   <body>
-
+    <div>
+      <h1>BetaFish</h1>
+      <% if logged_in? %>
+        <p>Welcome back, <%=link_to current_user.username, user_path%>
+        <%=button_to 'Logout', logout_path, method: :delete %></p>
+      <% else %>
+        <p><%=link_to 'Login', login_path%>
+        <%=link_to 'Register', new_user_path%></p>
+      <% end %>
+    </div>
     <%= yield %>
 
   </body>
