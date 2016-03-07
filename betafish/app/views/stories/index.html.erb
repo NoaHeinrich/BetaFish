@@ -1,0 +1,16 @@
+<h4>Latest Stories:</h4>
+<ul>
+  <% if @stories.any? %>
+    <% @stories.each do |story| %>
+      <li><%= link_to story.title, story_path(story) %></li>
+    <% end %>
+  <% end %>
+</ul>
+<p>Sort by genre: </p>
+<ul>
+  <% if @genres.any? %>
+    <% @genres.each do |genre| %>
+      <li><%= link_to genre.name, genre_path(genre) %></li>
+    <% end %>
+  <% end %>
+</ul>

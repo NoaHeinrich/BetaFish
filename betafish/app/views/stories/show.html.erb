@@ -1,0 +1,10 @@
+<h2><%= @story.title %></h2>
+<h5>By <%= link_to @story.user.username, user_path(@story.user) %></h5>
+<p><%= @story.content %></p>
+<% if @story.replies.any? %>
+  <ul>
+    <% @story.replies.each do |reply| %>
+      <li><%= reply.content %></li>
+    <% end %>
+  </ul>
+<% end %>

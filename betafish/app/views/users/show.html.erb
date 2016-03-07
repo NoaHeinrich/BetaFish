@@ -1,0 +1,19 @@
+<p><%= @user.username %></p>
+<p><%= @user.email %></p>
+<p><%= link_to "Edit User Information", edit_user_path %></p>
+<strong>Your Average Rating:
+  <% if @user.average_rating %>
+    <%= @user.average_rating %>
+  <% else %>
+    No ratings yet
+  <% end %>
+</strong>
+<p>Your Stories: </p>
+<% if @user.stories.length > 0 %>
+  <% @user.stories.each do |story| %>
+    <%= link_to story.title, story_path %>
+  <% end %>
+<% else %>
+  <p>You haven't published anything yet!</p>
+<% end %>
+<%= link_to 'Write Something', new_story_path %>
