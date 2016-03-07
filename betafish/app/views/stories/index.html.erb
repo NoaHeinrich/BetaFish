@@ -1,6 +1,6 @@
 <h4>Latest Stories:</h4>
 <ul>
-  <% if @stories.length > 0 %>
+  <% if @stories.any? %>
     <% @stories.each do |story| %>
       <li><%= link_to story.title, story_path(story) %></li>
     <% end %>
@@ -8,7 +8,7 @@
 </ul>
 <p>Sort by genre: </p>
 <ul>
-  <% if @genres.length > 0 %>
+  <% if @genres.any? %>
     <% @genres.each do |genre| %>
       <li><%= link_to genre.name, genre_path(genre) %></li>
     <% end %>
