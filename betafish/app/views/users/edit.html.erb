@@ -1,1 +1,5 @@
-edit.html.erb
+<h1>Edit User</h1>
+
+<%= render 'form' %>
+<%= button_to "Delete Account", { action: "destroy", id: @user.id }, method: :destroy, data: { confirm: "Are you sure?" } %>
+<%= link_to 'Back', user_path %>
