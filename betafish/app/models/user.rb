@@ -10,8 +10,18 @@ class User < ActiveRecord::Base
   has_secure_password(validations: false)
 
   def get_avg_rating
-
-
+    if replies.length > 0
+      ratings = []
+      replies.each do |reply|
+        if reply.rating
+          ratings << reply.rating.score.to_f
+        end
+      end
+      average = ratings.reduce(:+) / ratings.length.to_f
+      average
+    else
+      nil
+    end
   end
 
 end
