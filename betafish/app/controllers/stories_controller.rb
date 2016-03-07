@@ -3,14 +3,20 @@ class StoriesController < ApplicationController
   before_action :set_story, only: [:show, :edit, :update, :destroy]
 
   def index
+    @stories = Story.all
+    @genres = Genre.all
   end
 
   def new
-    @story = Story.new
+    if logged_in?
+      @story = Story.new
+    else
+      redirect_to new_user_path
+    end
   end
 
   def create
-    @story = Story.new
+    @story = Story.new(story_params)
     if @story.save
       redirect_to @story
     else
@@ -43,7 +49,7 @@ class StoriesController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      params.require(:user).permit(:title, :content)
+      params.require(:story).permit(:title, :content)
     end
 
 end
