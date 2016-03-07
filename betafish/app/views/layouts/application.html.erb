@@ -14,7 +14,7 @@
     <div>
       <h1>BetaFish</h1>
       <% if logged_in? %>
-        <p>Welcome back, <%=link_to current_user.username, user_path%>
+        <p>Welcome back, <%=link_to current_user.username, user_path(current_user) %>
         <%=button_to 'Logout', logout_path, method: :delete %></p>
       <% else %>
         <p><%=link_to 'Login', login_path%>
