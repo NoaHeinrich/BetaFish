@@ -1,0 +1,8 @@
+<% if @genre.stories.any? %>
+  <ul>
+  <% @genre.stories.each do |story| %>
+    <li><%= link_to story.title, story_path(story)%></li>
+    <p><%= story.replies.length %> comments</p>
+  <% end %>
+  </ul>
+<% end %>

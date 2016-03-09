@@ -4,7 +4,23 @@
 <% if @story.replies.any? %>
   <ul>
     <% @story.replies.each do |reply| %>
+      <strong>User's Average Rating: <%=reply.user.average_rating %></strong>
       <li><%= reply.content %></li>
+      <% if @story.user == current_user %>
+        <p>How helpful did you find this review?</p>
+        <%= form_for(@rating) do |f| %>
+          <%= radio_button_tag(:score, 1) %>
+          <%= label_tag(:score_1, "1") %>
+          <%= radio_button_tag(:score, 2) %>
+          <%= label_tag(:score_2, "2") %>
+          <%= radio_button_tag(:score, 3) %>
+          <%= label_tag(:score_3, "3") %>
+          <%= radio_button_tag(:score, 4) %>
+          <%= label_tag(:score_4, "4") %>
+          <%= radio_button_tag(:score, 5) %>
+          <%= label_tag(:score_5, "5") %>
+        <% end %>
+      <% end %>
     <% end %>
   </ul>
 <% end %>

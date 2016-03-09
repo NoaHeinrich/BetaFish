@@ -1,4 +1,4 @@
-class GenresController < ApplicationControllers
+class GenresController < ApplicationController
   def new
   end
 
@@ -8,6 +8,7 @@ class GenresController < ApplicationControllers
       redirect_to @genre
     else
       render :new
+    end
   end
 
   def index
